@@ -1,5 +1,8 @@
 # Leetcode OJ
 
+* TODO: 
+  * 理解第四题的log(M+N)算法
+
 ### 1.Two Sum
 
 * easy
@@ -15,3 +18,6 @@
 
 * `O(N)`
 
+### 4.Median of Two Sorted Arrays
+
+* O(m+n)
