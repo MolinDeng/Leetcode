@@ -13,3 +13,18 @@ public:
         return res;
     }
 };
+
+class Solution2 {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> res;
+        map<int, int> value2idx;
+        for(int i = 0; i < nums.size(); i++) {
+            int k = target - nums[i];
+            if(value2idx.count(k)) 
+                return {value2idx[k], i};
+            value2idx[nums[i]] = i;
+        }
+        return res;
+    }
+};
