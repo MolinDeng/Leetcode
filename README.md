@@ -40,6 +40,10 @@ for(int i = len - 1; i >= 0; --i) {
 
 * 上述判断可以解决边界的判断
 
+### 8. String to Integer (atoi)
+
+* find_if、find_if_not搭配匿名函数很方便的
+
 ### 10. Regular Expression Matching
 
 * using C++11 \<regex> 
