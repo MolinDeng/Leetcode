@@ -39,3 +39,16 @@ for(int i = len - 1; i >= 0; --i) {
 ```
 
 * 上述判断可以解决边界的判断
+
+### 10. Regular Expression Matching
+
+* using C++11 \<regex> 
+
+```c++
+regex r(p);
+return regex_match(s, r);
+```
+
+* dp
+
+![image_1537058343](assets/image_1537058343.png)
