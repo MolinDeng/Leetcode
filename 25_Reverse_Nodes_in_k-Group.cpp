@@ -1,11 +1,4 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+// Non-recursice
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
@@ -37,5 +30,49 @@ public:
             head = p;
         }
         return dummy->next;
+    }
+};
+
+// Recursive ver1
+class Solution {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        if(!head || k < 2) return head;
+        ListNode *p = head;
+        for(int i = 0; i < k; ++i) {
+            if(p) p = p->next;
+            else return head;
+        }
+        ListNode *pre = NULL, *curr = head, *next = NULL;
+        for(int i = k; i > 0; --i) { // while(curr != p)
+            next = curr->next;
+            curr->next = pre;
+            pre = curr;
+            curr = next;
+        }
+        head->next = reverseKGroup(p, k);
+        return pre;
+    }
+};
+
+// Recursive ver2
+class Solution {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        if(!head || k < 2) return head;
+        ListNode *p = head;
+        for(int i = 0; i < k; ++i) {
+            if(p) p = p->next;
+            else return head;
+        }
+        ListNode *pre = NULL, *curr = head, *next = NULL;
+        while(curr != p) {
+            next = curr->next;
+            if(pre) curr->next = pre;
+            else curr->next = reverseKGroup(p, k);
+            pre = curr;
+            curr = next;
+        }
+        return pre;
     }
 };
